@@ -1,0 +1,7 @@
+@use "abstracts" as *;
+
+.editor-styles-wrapper {
+  background: $color-paper;
+  color: $color-ink;
+  font-family: $font-sans;
+}

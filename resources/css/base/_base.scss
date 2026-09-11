@@ -1,0 +1,44 @@
+@use "../abstracts" as *;
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: $color-paper;
+  color: $color-ink;
+  font-family: $font-sans;
+  font-size: $fs-base;
+  line-height: 1.6;
+}
+
+.main {
+  min-height: 50vh;
+}
+
+.sr-only {
+  @include visually-hidden;
+}
+
+.sr-only:focus,
+.sr-only.focus\:not-sr-only:focus {
+  position: fixed;
+  top: $space-sm;
+  left: $space-sm;
+  z-index: 999;
+  width: auto;
+  height: auto;
+  padding: $space-xs $space-md;
+  overflow: visible;
+  clip: auto;
+  background: $color-ink;
+  color: $color-paper;
+  white-space: nowrap;
+}
+
+a:not(.brand):not(.nav a) {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: $color-accent;
+}

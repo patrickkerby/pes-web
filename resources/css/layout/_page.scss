@@ -1,0 +1,10 @@
+@use "../abstracts" as *;
+
+.main {
+  @include container;
+  padding-block: $space-2xl;
+}
+
+.page-header {
+  margin-bottom: $space-xl;
+}

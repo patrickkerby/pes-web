@@ -1,0 +1,30 @@
+@use "../abstracts" as *;
+
+.banner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-lg;
+  padding-block: $space-lg;
+  border-bottom: 1px solid $color-line;
+}
+
+.brand {
+  font-weight: $fw-bold;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.nav-primary .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md $space-lg;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-primary a {
+  text-decoration: none;
+}

@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+.content-info {
+  @include container;
+  padding-block: $space-xl;
+  border-top: 1px solid $color-line;
+  color: $color-ink-soft;
+  font-size: $fs-sm;
+}
