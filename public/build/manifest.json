@@ -4,7 +4,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.scss": {
-    "file": "assets/app-CmZUygso.css",
+    "file": "assets/app-BakH1TJx.css",
     "name": "app",
     "names": [
       "app.css"
@@ -13,7 +13,7 @@
     "isEntry": true
   },
   "resources/css/editor.scss": {
-    "file": "assets/editor-pc6XDhec.css",
+    "file": "assets/editor-DC_-qIfb.css",
     "name": "editor",
     "names": [
       "editor.css"
@@ -21,11 +21,18 @@
     "src": "resources/css/editor.scss",
     "isEntry": true
   },
+  "resources/images/Big-P.svg": {
+    "file": "assets/Big-P-Dh15G9RK.svg",
+    "src": "resources/images/Big-P.svg"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-BvRk9kiK.js",
+    "file": "assets/app-BG8NTON5.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "css": [
+      "assets/app-DsZBW-Fw.css"
+    ]
   },
   "resources/js/editor.js": {
     "file": "assets/editor-Dqo-zVGR.js",

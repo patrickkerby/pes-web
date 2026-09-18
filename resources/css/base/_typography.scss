@@ -1,8 +1,10 @@
 @use "../abstracts" as *;
 
 h1, h2, h3, h4 {
+  font-family: $font-display;
   font-weight: $fw-semibold;
-  line-height: 1.2;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 
 h1 { font-size: $fs-2xl; }

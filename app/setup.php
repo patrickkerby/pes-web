@@ -70,6 +70,15 @@ add_filter('should_load_separate_core_block_assets', '__return_false');
  *
  * @return void
  */
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style(
+        'pes-fonts',
+        'https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@400;500;600;700&display=swap',
+        [],
+        null
+    );
+});
+
 add_action('after_setup_theme', function () {
     /**
      * Disable full-site editing support.

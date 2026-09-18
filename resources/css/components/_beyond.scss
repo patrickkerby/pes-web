@@ -1,0 +1,107 @@
+@use "../abstracts" as *;
+
+.beyond {
+  padding: $space-3xl $container-pad $space-2xl;
+  background: $color-paper;
+}
+
+.beyond > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: $container-max;
+  margin: 0 auto $space-xl;
+  padding: 0 3.5rem;
+
+  @include from(md) {
+    align-items: start;
+    flex-direction: row;
+  }
+}
+
+.beyond > div:first-child > div:first-child p {
+  @include eyebrow;
+  margin-bottom: $space-md;
+}
+
+.beyond h2 {
+  margin: 0;
+  color: $color-accent;
+  font-size: clamp(2.6rem, 1.7rem + 3.4vw, 4rem);
+  line-height: 1.05;
+  max-width: 30rem;
+  @include copper-text-gradient;
+}
+
+.beyond > div:first-child > div:last-child {
+  color: rgba(244, 239, 232, 0.78);
+  font-size: $fs-base;
+  line-height: 1.55;
+  max-width: 28rem;
+
+  @include from(md) { padding-top: 2rem; }
+
+  p { margin: 0 0 $space-sm; }
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: $container-max;
+  margin-inline: auto;
+
+  @include from(900px) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.stats article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  padding: $space-xl 3.5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12%;
+    bottom: 10%;
+    width: 2px;
+    background: $color-accent;
+    display: none;
+  }
+
+  @include from(md) {
+    &:nth-child(even)::before { display: block; }
+  }
+
+  @include from(900px) {
+    &:not(:first-child)::before { display: block; }
+  }
+}
+
+.stats img {
+  width: 8.25rem;
+  height: 8.25rem;
+  margin: 0 auto;
+}
+
+.stats img { object-fit: contain; }
+
+.stats p {
+  max-width: 12.75rem;
+  color: $color-accent;
+  font-family: $font-display;
+  font-weight: $fw-bold;
+  font-size: clamp(1.8rem, 1rem + 0.6vw, 1.45rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.stats span {
+  color: #fff;
+  font-family: $font-display;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}

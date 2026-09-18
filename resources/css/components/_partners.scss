@@ -1,0 +1,170 @@
+@use "../abstracts" as *;
+
+.partners {
+  display: grid;
+  gap: $space-2xl;
+  padding: $space-2xl 2rem 2rem 2rem;
+  background: #fff;
+  color: $color-paper;
+  overflow-x: hidden;
+}
+
+.partners > div {
+  width: min(100%, 86rem);
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.partners p {
+  @include eyebrow;
+  margin: 0;
+  color: $color-accent;
+}
+
+.partners [data-community] {
+  display: flex;
+  gap: $space-xl;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partners [data-community] > div,
+.partners [data-platforms] > div,
+.partners [data-support] > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $space-lg $space-xl;
+}
+
+.partners [data-community] > div {
+  gap: $space-xl $space-3xl;
+}
+
+.partners > [data-credentials] {
+  width: 100%;
+  max-width: none;
+}
+
+.partners [data-marquee] {
+  overflow: hidden;
+}
+
+.partners [data-credentials] [data-track] {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  gap: 0;
+}
+
+.partners [data-credentials] [data-track] > * {
+  flex: 0 0 auto;
+  margin-right: $space-xl;
+}
+
+.partners [data-credentials] [data-track]:not(.is-marquee) > *:last-child {
+  margin-right: 0;
+}
+
+.partners [data-credentials] [data-track].is-marquee {
+  max-width: none;
+  margin-inline: 0;
+  justify-content: flex-start;
+  animation: partners-marquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.partners [data-marquee]:hover [data-track].is-marquee {
+  animation-play-state: paused;
+}
+
+.partners [data-support] > p,
+.partners [data-credentials] > p:first-child,
+.partners [data-platforms] > p {
+  margin-bottom: $space-lg;
+  text-align: center;
+}
+
+.partners a,
+.partners [data-community] > div > div,
+.partners [data-support] > div > div,
+.partners [data-credentials] > div > div,
+.partners [data-platforms] > div > div {
+  display: grid;
+  place-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.partners img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  transition: filter $dur $ease;
+}
+
+.partners a:hover img,
+.partners a:focus-visible img,
+.partners div:hover img {
+  filter: grayscale(0);
+}
+
+.partners [data-community] img {
+  max-width: 16rem;
+  max-height: 5.75rem;
+}
+
+.partners [data-support] img {
+  max-width: 8.5rem;
+  max-height: 3rem;
+}
+
+.partners [data-credentials] img,
+.partners [data-platforms] img {
+  max-width: 7.5rem;
+  max-height: 2.6rem;
+}
+
+.partners span {
+  font-family: $font-sans;
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.partners [data-community] span {
+  font-size: $fs-lg;
+}
+
+.partners [data-credentials] > p:last-child:not(:first-child) {
+  margin-top: $space-lg;
+  color: $color-paper;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners img { transition: none; }
+
+  .partners [data-credentials] [data-track].is-marquee {
+    animation: none;
+  }
+
+  .partners [data-marquee] {
+    overflow-x: auto;
+  }
+}
+
+@keyframes partners-marquee {
+  to { transform: translateX(-50%); }
+}

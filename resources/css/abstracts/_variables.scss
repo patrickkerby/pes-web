@@ -1,38 +1,50 @@
-// Design tokens — placeholders until the one-pager design lands.
+// Design tokens — Initial Launch one-pager.
+// Placeholder values matched from Figma; swap when the type/colour system is final.
 
-$color-ink: #1a1a1a;
-$color-ink-soft: #5c5c5c;
-$color-paper: #ffffff;
-$color-line: #e6e6e6;
-$color-accent: #c2410c;
+$color-ink: #f4efe8;
+$color-ink-soft: #d9d9d9;
+$color-paper: #0c0c0c;
+$color-paper-raised: #141414;
+$color-paper-light: #f6f1ea;
+$color-line: rgba(196, 148, 110, 0.35);
+$color-accent: #9b6252;
+$color-accent-deep: #844e3f;
+$color-copper-band: #c17a52;
+$color-copper-band-deep: #a35f3c;
+$color-gradient-copper: linear-gradient(30.42deg, #533733 -7.64%, #8E554C 26.02%, #D9865A 117.55%, #C36960 160.64%), #9B6252;
 
-$font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-sans: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-display: "Barlow Semi Condensed", system-ui, sans-serif;
+$font-serif: "Outfit", system-ui, sans-serif;
 
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-semibold: 600;
 $fw-bold: 700;
 
+$fs-xs: 0.7rem;
 $fs-sm: 0.875rem;
 $fs-base: 1rem;
-$fs-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
-$fs-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-$fs-2xl: clamp(2rem, 1.4rem + 2.5vw, 3rem);
+$fs-lg: clamp(1.05rem, 1rem + 0.4vw, 1.2rem);
+$fs-xl: clamp(2rem, 1.4rem + 2.4vw, 3.25rem);
+$fs-2xl: clamp(2.4rem, 1.6rem + 3.2vw, 4.5rem);
 
 $space-xs: 0.5rem;
 $space-sm: 0.75rem;
 $space-md: 1rem;
 $space-lg: 1.5rem;
 $space-xl: 2.5rem;
-$space-2xl: 4rem;
+$space-2xl: 4.5rem;
+$space-3xl: 7rem;
 
 $container-max: 72rem;
-$container-pad: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+$container-pad: clamp(1.25rem, 0.6rem + 4vw, 4rem);
 
 $bp-sm: 480px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
 
-$dur: 0.2s;
+$dur: 0.4s;
 $ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+$radius: 6px;

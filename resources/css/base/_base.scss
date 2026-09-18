@@ -10,16 +10,11 @@ body {
   line-height: 1.6;
 }
 
-.main {
-  min-height: 50vh;
-}
-
 .sr-only {
   @include visually-hidden;
 }
 
-.sr-only:focus,
-.sr-only.focus\:not-sr-only:focus {
+.sr-only:focus {
   position: fixed;
   top: $space-sm;
   left: $space-sm;
@@ -29,14 +24,14 @@ body {
   padding: $space-xs $space-md;
   overflow: visible;
   clip: auto;
-  background: $color-ink;
+  background: $color-paper-light;
   color: $color-paper;
   white-space: nowrap;
 }
 
-a:not(.brand):not(.nav a) {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {

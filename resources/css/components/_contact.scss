@@ -1,0 +1,199 @@
+@use "../abstracts" as *;
+
+.contact {
+  display: grid;
+  background: $color-gradient-copper;
+  color: $color-paper-light;
+
+  @include from(lg) {
+    grid-template-columns: 1.5fr 1fr;
+    min-height: 32rem;
+  }
+}
+
+.contact > div:first-child {
+  padding: $space-3xl $container-pad;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.contact header p {
+  @include eyebrow;
+  margin-bottom: $space-xs;
+  color: rgba(246, 241, 234, 0.8);
+}
+
+.contact h2 {
+  margin: 0 0 $space-lg;
+  color: $color-paper-light;
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+  line-height: 0.9;
+}
+
+.contact > div:first-child > p {
+  margin: 0 0 $space-lg;
+  color: rgba(246, 241, 234, 0.86);
+
+  a { text-decoration: none; }
+  a:hover { color: $color-paper; }
+}
+
+.contact > div:first-child > a {
+  @include btn-fill;
+  background: $color-ink-soft;
+  color: $color-copper-band-deep;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  font-size: $fs-base;
+
+  &::before { content: none; }
+
+  &:hover {
+    background: $color-paper;
+    color: $color-paper-light;
+  }
+}
+
+.contact > div:last-child {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  background: $color-accent;
+
+  @include from(lg) { min-height: 100%; }
+}
+
+.contact [data-map],
+.contact [data-labels] {
+  position: absolute;
+  inset: 0;
+}
+
+.contact [data-labels] {
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.contact [data-labels] > * {
+  position: absolute;
+}
+
+.contact [data-labels] > [data-anchor="center"] {
+  transform: translate(-50%, -50%);
+}
+
+.contact [data-range] {
+  z-index: 0;
+  width: 0;
+  height: 0;
+}
+
+.contact [data-range] b,
+.contact [data-range] i {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.contact [data-range] b {
+  animation: contact-range 8s $ease infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.contact [data-range] i {
+  width: 0.55rem;
+  height: 1.5px;
+  margin: -0.75px -0.275rem;
+  background: rgba(246, 241, 234, 0.72);
+  transform: rotate(var(--angle)) translateY(calc(var(--radius) * -1));
+}
+
+.contact [data-range] i[data-cardinal] {
+  width: 0.85rem;
+  margin-left: -0.425rem;
+  background: rgba(246, 241, 234, 0.9);
+}
+
+.contact [data-range] b:nth-child(2) i { opacity: 0.8; }
+.contact [data-range] b:nth-child(3) i { opacity: 0.55; }
+
+.contact [data-labels] > [data-anchor="left"] {
+  transform: translate(-0.2rem, -50%);
+}
+
+.contact [data-map] .mapboxgl-map,
+.contact [data-map] .mapboxgl-canvas,
+.contact [data-map] .mapboxgl-canvas-container {
+  width: 100%;
+  height: 100%;
+}
+
+.contact [data-map] .mapboxgl-ctrl-attrib {
+  background: transparent;
+  color: rgba(26, 18, 14, 0.45);
+  font-size: 0.6rem;
+}
+
+.contact [data-map] .mapboxgl-ctrl-attrib a {
+  color: inherit;
+}
+
+.contact [data-region],
+.contact [data-city] {
+  z-index: 1;
+  color: #1a120e;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.contact [data-region] {
+  font-family: $font-sans;
+  font-size: 0.65rem;
+  font-weight: $fw-semibold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.contact [data-city] {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-sans;
+  font-size: 0.7rem;
+  font-weight: $fw-medium;
+  letter-spacing: 0.08em;
+}
+
+.contact [data-city]::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 1px solid #1a120e;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.contact [data-city][data-home] {
+  font-weight: $fw-semibold;
+}
+
+.contact [data-city][data-home]::before {
+  box-shadow: 0 0 0 3px rgba(26, 18, 14, 0.12);
+  background: #1a120e;
+}
+
+@keyframes contact-range {
+  0%, 16% { opacity: 0.18; }
+  34% { opacity: 1; }
+  72% { opacity: 0.4; }
+  100% { opacity: 0.18; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact [data-range] b {
+    animation: none;
+    opacity: 0.45;
+  }
+}
