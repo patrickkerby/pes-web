@@ -1,6 +1,9 @@
 @use "../abstracts" as *;
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 body {
   background: $color-paper;
@@ -8,6 +11,7 @@ body {
   font-family: $font-sans;
   font-size: $fs-base;
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 .sr-only {

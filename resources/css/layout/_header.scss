@@ -27,8 +27,10 @@
 
 #app > header > a img {
   display: block;
-  height: 4rem;
+  height: 2.75rem;
   width: auto;
+
+  @include from(md) { height: 4rem; }
 }
 
 #app > header nav {

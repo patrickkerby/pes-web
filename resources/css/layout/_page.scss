@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
-#main {
-  min-height: 40vh;
+#app {
+  overflow-x: clip;
 }
 
 body:not(.home) #main {

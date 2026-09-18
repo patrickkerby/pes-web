@@ -31,8 +31,10 @@
 
 #app > footer > div > a img {
   display: block;
-  height: 3.25rem;
+  height: 2.5rem;
   width: auto;
+
+  @include from(md) { height: 3.25rem; }
 }
 
 #app > footer h3 {
