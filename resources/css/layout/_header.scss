@@ -49,7 +49,7 @@
 
 #app > header nav a {
   font-family: $font-display;
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: $fw-semibold;
   text-transform: uppercase;
   text-decoration: none;
@@ -62,7 +62,7 @@
   @include btn-ghost;
   min-height: 2.4rem;
   min-width: 2.4rem;
-  font-size: 1.0625rem;
+  font-size: 1rem;
   padding-inline: 0.55rem;
   gap: 0;
 
