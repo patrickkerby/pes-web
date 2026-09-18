@@ -13,7 +13,7 @@
   </section>
 
   <section class="beyond" id="who">
-    <div>
+    <div data-enter>
       <div>
         @if ($beyondEyebrow)
           <p>{{ $beyondEyebrow }}</p>
@@ -28,7 +28,7 @@
     @if ($stats)
       <div class="stats">
         @foreach ($stats as $stat)
-          <article>
+          <article data-enter>
             @if (! empty($stat['icon']['url']))
               <img src="{{ $stat['icon']['url'] }}" alt="" width="{{ $stat['icon']['width'] ?? 64 }}" height="{{ $stat['icon']['height'] ?? 64 }}">
             @else
@@ -44,7 +44,7 @@
 
   <section class="partners" id="partners">
     @if ($communityPartners)
-      <div data-community>
+      <div data-community data-enter>
         @if ($communityPartnersHeading)
           <p>{{ $communityPartnersHeading }}</p>
         @endif
@@ -57,7 +57,7 @@
     @endif
 
     @if ($supportOrgs)
-      <div data-support>
+      <div data-support data-enter>
         @if ($supportOrgsHeading)
           <p>{{ $supportOrgsHeading }}</p>
         @endif
@@ -70,7 +70,7 @@
     @endif
 
     @if ($credentials || $credentialsLine)
-      <div data-credentials>
+      <div data-credentials data-enter>
         @if ($credentialsHeading)
           <p>{{ $credentialsHeading }}</p>
         @endif
@@ -89,7 +89,7 @@
   </section>
 
   <section class="contact" id="contact">
-    <div>
+    <div data-enter>
       <header>
         @if ($contactEyebrow)
           <p>{{ $contactEyebrow }}</p>

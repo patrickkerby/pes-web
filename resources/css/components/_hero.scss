@@ -30,6 +30,7 @@
   height: 108%;
   max-width: none;
   opacity: 0.7;
+  animation: mark-breathe 22s ease-in-out infinite alternate;
 
   @include from(md) {
     left: -15%;
@@ -52,6 +53,9 @@
   font-size: $fs-2xl;
   font-weight: $fw-bold;
   @include copper-text-gradient;
+  animation:
+    enter-soft 1.6s $ease both,
+    copper-drift 16s 1.6s ease-in-out infinite alternate;
 }
 
 .hero p {
@@ -60,10 +64,12 @@
   color: $color-ink-soft;
   font-size: 1.2rem;
   line-height: 1.3;
+  animation: enter-soft 1.6s 0.18s $ease both;
 }
 
 .hero > a {
   @include btn-fill;
   padding-left: 3rem;
   padding-right: 3rem;
+  animation: enter-soft 1.6s 0.32s $ease both;
 }

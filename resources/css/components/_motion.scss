@@ -1,0 +1,58 @@
+@use "../abstracts" as *;
+
+@keyframes copper-drift {
+  to { background-position: 88% 72%; }
+}
+
+@keyframes enter-soft {
+  from {
+    opacity: 0;
+    transform: translateY(1.1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mark-breathe {
+  to { opacity: 0.82; }
+}
+
+.has-motion [data-enter] {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 1.65s $ease var(--enter-delay, 0s),
+    transform 1.65s $ease var(--enter-delay, 0s);
+}
+
+.has-motion [data-enter].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.stats article:nth-child(2) { --enter-delay: 0.14s; }
+.stats article:nth-child(3) { --enter-delay: 0.28s; }
+.stats article:nth-child(4) { --enter-delay: 0.42s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .hero h1,
+  .hero p,
+  .hero > a,
+  .hero > a::before,
+  .hero > img,
+  .beyond h2,
+  .contact {
+    animation: none;
+  }
+
+  .has-motion [data-enter] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

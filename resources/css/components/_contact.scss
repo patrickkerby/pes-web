@@ -3,7 +3,10 @@
 .contact {
   display: grid;
   background: $color-gradient-copper;
+  background-size: 180% 180%;
+  background-position: 8% 28%;
   color: $color-paper-light;
+  animation: copper-drift 20s ease-in-out infinite alternate;
 
   @include from(lg) {
     grid-template-columns: 1.5fr 1fr;
