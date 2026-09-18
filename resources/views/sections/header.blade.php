@@ -17,6 +17,12 @@
         'echo' => false,
       ]) !!}
     @endif
-    <a href="{{ $appUrl }}">{{ $loginLabel }}</a>
+    <a href="{{ $appUrl }}">
+      <span>{{ $loginLabel }}</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="8" r="3.5"/>
+        <path d="M5.2 19.2c.9-3.4 3.5-5.2 6.8-5.2s5.9 1.8 6.8 5.2"/>
+      </svg>
+    </a>
   </nav>
 </header>

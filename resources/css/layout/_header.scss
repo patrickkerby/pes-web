@@ -61,6 +61,40 @@
 #app > header nav > a {
   @include btn-ghost;
   min-height: 2.4rem;
+  min-width: 2.4rem;
   font-size: 1.0625rem;
-  padding-inline: 1.15rem;
+  padding-inline: 0.55rem;
+  gap: 0;
+
+  span {
+    @include visually-hidden;
+  }
+
+  svg {
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @include from(md) {
+    min-width: 0;
+    padding-inline: 1.15rem;
+
+    span {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: nowrap;
+    }
+
+    svg { display: none; }
+  }
 }
