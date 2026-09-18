@@ -1,8 +1,15 @@
 @use "../abstracts" as *;
 
 .beyond {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1.25rem - var(--hero-overlap, 0px));
   padding: $space-3xl $container-pad $space-2xl;
   background: $color-paper;
+
+  @include from(md) {
+    margin-top: calc(-2.25rem - var(--hero-overlap, 0px));
+  }
 }
 
 .beyond > div:first-child {

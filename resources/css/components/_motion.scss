@@ -50,6 +50,15 @@
     animation: none;
   }
 
+  .hero::before,
+  .hero > img {
+    transform: none;
+  }
+
+  .beyond {
+    --hero-overlap: 0px;
+  }
+
   .has-motion [data-enter] {
     opacity: 1;
     transform: none;
