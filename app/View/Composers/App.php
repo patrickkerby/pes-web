@@ -22,7 +22,7 @@ class App extends Composer
         $legal = $fields['footerLegal'] ?? '© {year} Progressive Electrical Services Inc. All rights reserved.';
 
         return array_merge([
-            'loginUrl' => 'https://app.progressiveelectrical.ca',
+            'loginUrl' => 'https://app.pespower.ca',
             'loginLabel' => 'Login',
             'phone' => '780 555 5555',
             'email' => 'admin@pespower.ca',
@@ -37,7 +37,7 @@ class App extends Composer
             'siteName' => get_bloginfo('name', 'display'),
             'logoUrl' => $this->imageUrl($logo),
             'logoAlt' => $this->imageAlt($logo) ?: get_bloginfo('name', 'display'),
-            'appUrl' => $fields['loginUrl'] ?? 'https://app.progressiveelectrical.ca',
+            'appUrl' => $fields['loginUrl'] ?? 'https://app.pespower.ca',
             'phoneHref' => $digits ? 'tel:'.$digits : '',
             'footerLegal' => str_replace('{year}', (string) date('Y'), $legal),
         ]);

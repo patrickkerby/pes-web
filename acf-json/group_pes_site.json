@@ -51,7 +51,7 @@
             "name": "login_url",
             "aria-label": "",
             "type": "url",
-            "instructions": "",
+            "instructions": "Employee portal. Always https:\/\/app.pespower.ca",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -59,7 +59,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "https:\/\/app.progressiveelectrical.ca",
+            "default_value": "https:\/\/app.pespower.ca",
             "placeholder": ""
         },
         {

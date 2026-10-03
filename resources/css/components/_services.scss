@@ -1,0 +1,286 @@
+@use "../abstracts" as *;
+
+.services {
+  position: relative;
+  z-index: 2;
+  padding: $space-2xl $container-pad $space-3xl;
+  background: $color-paper;
+}
+
+.services > header {
+  max-width: $container-max;
+  margin: 0 auto 3.25rem;
+  text-align: center;
+}
+
+.services > header p {
+  @include eyebrow;
+  margin-bottom: $space-md;
+}
+
+.services h2 {
+  margin: 0;
+  color: $color-accent;
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+  line-height: 1.05;
+  @include copper-text-gradient;
+}
+
+.services > div:not([data-service-layer]) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  max-width: $container-max;
+  margin-inline: auto;
+
+  @include from(md) { grid-template-columns: 1fr 1fr; }
+  @include from(lg) { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.services button[data-service] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 17.5rem;
+  padding: 2.85rem 2rem;
+  border: 1px solid $color-accent;
+  border-radius: 2px;
+  background: transparent;
+  color: $color-accent;
+  text-align: center;
+  transition:
+    background $dur $ease,
+    border-color $dur $ease,
+    color $dur $ease;
+
+  span {
+    max-width: 13rem;
+    font-family: $font-display;
+    font-size: clamp(1.4rem, 1.2rem + 0.75vw, 1.8rem);
+    font-weight: $fw-semibold;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  svg {
+    width: 1.45rem;
+    height: 1.45rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform $dur $ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(155, 98, 82, 0.08);
+    color: $color-ink;
+
+    svg { transform: translateX(0.35rem); }
+  }
+}
+
+[data-service-layer] {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s 0.68s;
+}
+
+[data-service-layer].is-open {
+  visibility: visible;
+  pointer-events: auto;
+  transition: visibility 0s;
+}
+
+[data-service-layer] [data-backdrop] {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 5, 0.52);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  transition: opacity 0.68s $ease;
+}
+
+[data-service-layer].is-open [data-backdrop] {
+  opacity: 1;
+}
+
+[data-service-layer] [data-panel] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  align-content: start;
+  width: 100%;
+  padding: $space-2xl $container-pad $space-3xl;
+  overflow: auto;
+  background: #110d0c;
+  color: $color-ink;
+  box-shadow: -2.5rem 0 4rem rgba(0, 0, 0, 0.28);
+  transform: translateX(104%);
+  transition: transform 0.68s cubic-bezier(0.64, 0.04, 0.35, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    background: $color-gradient-copper;
+    background-size: 180% 180%;
+    animation: copper-drift 16s ease-in-out infinite alternate;
+  }
+
+  @include from(md) {
+    width: min(76vw, 72rem);
+    padding-left: clamp(3rem, 6vw, 5.5rem);
+    padding-right: clamp(3rem, 5vw, 4.5rem);
+  }
+}
+
+[data-service-layer].is-open [data-panel] {
+  transform: none;
+  transition-duration: 0.72s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-service-layer] [data-close] {
+  position: sticky;
+  top: 0;
+  justify-self: end;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin: -0.5rem -0.5rem $space-lg auto;
+  border: 1px solid $color-accent;
+  border-radius: 2px;
+  color: $color-ink;
+  transition: background $dur $ease, color $dur $ease;
+
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: $color-accent;
+    color: $color-paper;
+  }
+}
+
+[data-service-layer] article {
+  position: relative;
+  max-width: 44rem;
+}
+
+[data-service-layer] article > p:first-child {
+  margin: 0 0 $space-sm;
+  color: $color-accent;
+  font-family: $font-display;
+  font-size: 0.85rem;
+  font-weight: $fw-semibold;
+  letter-spacing: 0.16em;
+}
+
+[data-service-layer] h3 {
+  margin: 0 0 $space-lg;
+  color: $color-accent;
+  font-size: clamp(2rem, 1.5rem + 2vw, 3.1rem);
+  font-weight: $fw-bold;
+  line-height: 1.05;
+  @include copper-text-gradient;
+}
+
+[data-service-layer] article > p {
+  margin: 0 0 $space-lg;
+  color: rgba(244, 239, 232, 0.82);
+  font-size: $fs-lg;
+  line-height: 1.5;
+}
+
+[data-service-layer] ul {
+  margin: 0 0 $space-lg;
+  padding: 0;
+  list-style: none;
+}
+
+[data-service-layer] li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 1.15rem;
+  border-top: 1px solid rgba(155, 98, 82, 0.28);
+  color: $color-ink-soft;
+  font-size: $fs-base;
+  line-height: 1.4;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1.15rem;
+    left: 0;
+    width: 0.4rem;
+    height: 1px;
+    background: $color-accent;
+  }
+
+  &:last-child { border-bottom: 1px solid rgba(155, 98, 82, 0.28); }
+}
+
+[data-service-layer] article > p:last-child {
+  color: rgba(244, 239, 232, 0.7);
+  font-size: $fs-base;
+}
+
+[data-service-layer].is-open article:not([hidden]) > * {
+  animation: enter-soft 0.8s 0.18s $ease both;
+}
+
+[data-service-layer].is-open article:not([hidden]) > *:nth-child(2) { animation-delay: 0.26s; }
+[data-service-layer].is-open article:not([hidden]) > *:nth-child(3) { animation-delay: 0.34s; }
+[data-service-layer].is-open article:not([hidden]) > *:nth-child(4) { animation-delay: 0.42s; }
+[data-service-layer].is-open article:not([hidden]) > *:nth-child(5) { animation-delay: 0.5s; }
+[data-service-layer].is-open article:not([hidden]) > *:nth-child(6) { animation-delay: 0.56s; }
+[data-service-layer].is-open article:not([hidden]) > *:nth-child(7) { animation-delay: 0.62s; }
+
+@media (max-width: 767px) {
+  [data-service-layer] [data-panel] {
+    width: min(100vw, 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-service-layer] [data-backdrop],
+  [data-service-layer] [data-panel] {
+    transition: none;
+  }
+
+  [data-service-layer] [data-panel] {
+    transform: none;
+  }
+
+  [data-service-layer]:not(.is-open) [data-panel] {
+    visibility: hidden;
+  }
+
+  [data-service-layer].is-open article:not([hidden]) > * {
+    animation: none;
+  }
+}

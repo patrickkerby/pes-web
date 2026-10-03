@@ -296,6 +296,195 @@
             ]
         },
         {
+            "key": "field_pes_home_tab_services",
+            "label": "Services",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_pes_services_eyebrow",
+            "label": "Eyebrow",
+            "name": "services_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "What we're good at",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pes_services_title",
+            "label": "Heading",
+            "name": "services_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Services & Expertise",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pes_services",
+            "label": "Services",
+            "name": "services",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Each block opens a full-height panel. Keep titles short.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "Add service",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "field_pes_service_title",
+            "sub_fields": [
+                {
+                    "key": "field_pes_service_title",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pes_services"
+                },
+                {
+                    "key": "field_pes_service_intro",
+                    "label": "Intro",
+                    "name": "intro",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 8,
+                    "new_lines": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_pes_services"
+                },
+                {
+                    "key": "field_pes_service_points",
+                    "label": "Points",
+                    "name": "points",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "button_label": "Add point",
+                    "min": 0,
+                    "max": 0,
+                    "rows_per_page": 20,
+                    "collapsed": "",
+                    "parent_repeater": "field_pes_services",
+                    "sub_fields": [
+                        {
+                            "key": "field_pes_service_point",
+                            "label": "Point",
+                            "name": "point",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_pes_service_points"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_pes_service_closing",
+                    "label": "Closing",
+                    "name": "closing",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "new_lines": "",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_pes_services"
+                }
+            ]
+        },
+        {
             "key": "field_pes_home_tab_partners",
             "label": "Partners",
             "name": "",
@@ -917,5 +1106,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1789681104
+    "modified": 1759532100
 }
