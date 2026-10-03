@@ -359,7 +359,7 @@
             "name": "services",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "Each block opens a full-height panel. Keep titles short.",
+            "instructions": "Title appears on the card and as the panel heading. Write the panel body in the editor — paragraphs and lists pick up the site styles.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -396,12 +396,12 @@
                     "parent_repeater": "field_pes_services"
                 },
                 {
-                    "key": "field_pes_service_intro",
-                    "label": "Intro",
-                    "name": "intro",
+                    "key": "field_pes_service_content",
+                    "label": "Panel content",
+                    "name": "content",
                     "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
+                    "type": "wysiwyg",
+                    "instructions": "Paragraphs, lists, links and emphasis are styled to match the panel.",
                     "required": false,
                     "conditional_logic": false,
                     "wrapper": {
@@ -409,77 +409,11 @@
                         "class": "",
                         "id": ""
                     },
-                    "rows": 8,
-                    "new_lines": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
                     "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "parent_repeater": "field_pes_services"
-                },
-                {
-                    "key": "field_pes_service_points",
-                    "label": "Points",
-                    "name": "points",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "button_label": "Add point",
-                    "min": 0,
-                    "max": 0,
-                    "rows_per_page": 20,
-                    "collapsed": "",
-                    "parent_repeater": "field_pes_services",
-                    "sub_fields": [
-                        {
-                            "key": "field_pes_service_point",
-                            "label": "Point",
-                            "name": "point",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_pes_service_points"
-                        }
-                    ]
-                },
-                {
-                    "key": "field_pes_service_closing",
-                    "label": "Closing",
-                    "name": "closing",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "rows": 3,
-                    "new_lines": "",
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
+                    "delay": 0,
                     "parent_repeater": "field_pes_services"
                 }
             ]
@@ -1106,5 +1040,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759532100
+    "modified": 1791070466
 }

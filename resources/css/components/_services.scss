@@ -210,20 +210,46 @@
   @include copper-text-gradient;
 }
 
-[data-service-layer] article > p {
+[data-service-layer] [data-service-body] {
+  display: flow-root;
+}
+
+[data-service-layer] [data-service-body] p {
   margin: 0 0 $space-lg;
   color: rgba(244, 239, 232, 0.82);
   font-size: $fs-lg;
   line-height: 1.5;
 }
 
-[data-service-layer] ul {
+[data-service-layer] [data-service-body] > p:last-child {
+  color: rgba(244, 239, 232, 0.7);
+  font-size: $fs-base;
+}
+
+[data-service-layer] [data-service-body] h2,
+[data-service-layer] [data-service-body] h3,
+[data-service-layer] [data-service-body] h4 {
+  margin: $space-lg 0 $space-sm;
+  color: $color-accent;
+  font-family: $font-display;
+  font-size: $fs-lg;
+  font-weight: $fw-semibold;
+  line-height: 1.2;
+}
+
+[data-service-layer] [data-service-body] a {
+  color: $color-ink;
+  text-underline-offset: 0.18em;
+}
+
+[data-service-layer] [data-service-body] ul,
+[data-service-layer] [data-service-body] ol {
   margin: 0 0 $space-lg;
   padding: 0;
   list-style: none;
 }
 
-[data-service-layer] li {
+[data-service-layer] [data-service-body] li {
   position: relative;
   padding: 0.7rem 0 0.7rem 1.15rem;
   border-top: 1px solid rgba(155, 98, 82, 0.28);
@@ -242,11 +268,6 @@
   }
 
   &:last-child { border-bottom: 1px solid rgba(155, 98, 82, 0.28); }
-}
-
-[data-service-layer] article > p:last-child {
-  color: rgba(244, 239, 232, 0.7);
-  font-size: $fs-base;
 }
 
 [data-service-layer].is-open article:not([hidden]) > * {

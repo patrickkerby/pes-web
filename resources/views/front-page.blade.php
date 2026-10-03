@@ -73,18 +73,10 @@
             <article data-service-panel="{{ $item['slug'] }}" hidden>
               <p>{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
               <h3 id="service-{{ $item['slug'] }}">{{ $item['title'] }}</h3>
-              @foreach ($item['intro'] as $para)
-                <p>{{ $para }}</p>
-              @endforeach
-              @if ($item['points'])
-                <ul>
-                  @foreach ($item['points'] as $point)
-                    <li>{{ $point }}</li>
-                  @endforeach
-                </ul>
-              @endif
-              @if ($item['closing'])
-                <p>{{ $item['closing'] }}</p>
+              @if ($item['content'])
+                <div data-service-body>
+                  {!! wp_kses_post($item['content']) !!}
+                </div>
               @endif
             </article>
           @endforeach

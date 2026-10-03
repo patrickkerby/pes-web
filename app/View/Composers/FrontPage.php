@@ -80,26 +80,57 @@ class FrontPage extends Composer
                 return null;
             }
 
-            $points = $item['points'] ?? [];
+            $content = trim((string) ($item['content'] ?? ''));
 
-            if (is_string($points)) {
-                $list = preg_split('/\R/', $points) ?: [];
-            } else {
-                $list = array_map(function ($point) {
-                    return is_array($point) ? (string) ($point['point'] ?? '') : (string) $point;
-                }, $points);
+            if ($content === '') {
+                $content = $this->legacyServiceContent($item);
             }
-
-            $intro = (string) ($item['intro'] ?? '');
 
             return [
                 'title' => $title,
                 'slug' => sanitize_title($title),
-                'intro' => array_values(array_filter(array_map('trim', preg_split('/\R\s*\R/', trim($intro)) ?: []))),
-                'points' => array_values(array_filter(array_map('trim', $list))),
-                'closing' => (string) ($item['closing'] ?? ''),
+                'content' => $content,
             ];
         }, $items)));
+    }
+
+    protected function legacyServiceContent(array $item): string
+    {
+        $intro = trim((string) ($item['intro'] ?? ''));
+        $paragraphs = array_values(array_filter(array_map('trim', preg_split('/\R\s*\R/', $intro) ?: [])));
+        $points = $item['points'] ?? [];
+
+        if (is_string($points)) {
+            $list = preg_split('/\R/', $points) ?: [];
+        } else {
+            $list = array_map(function ($point) {
+                return is_array($point) ? (string) ($point['point'] ?? '') : (string) $point;
+            }, $points);
+        }
+
+        $list = array_values(array_filter(array_map('trim', $list)));
+        $closing = trim((string) ($item['closing'] ?? ''));
+        $html = '';
+
+        foreach ($paragraphs as $para) {
+            $html .= '<p>'.esc_html($para).'</p>';
+        }
+
+        if ($list) {
+            $html .= '<ul>';
+
+            foreach ($list as $point) {
+                $html .= '<li>'.esc_html($point).'</li>';
+            }
+
+            $html .= '</ul>';
+        }
+
+        if ($closing !== '') {
+            $html .= '<p>'.esc_html($closing).'</p>';
+        }
+
+        return $html;
     }
 
     protected function defaultServices(): array
