@@ -64,22 +64,24 @@
       <div data-service-layer>
         <div data-backdrop></div>
         <div data-panel role="dialog" aria-modal="true" aria-hidden="true">
-          <button type="button" data-close aria-label="{{ __('Close', 'sage') }}">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M6 6l12 12M18 6L6 18"/>
-            </svg>
-          </button>
-          @foreach ($services as $item)
-            <article data-service-panel="{{ $item['slug'] }}" hidden>
-              <p>{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
-              <h3 id="service-{{ $item['slug'] }}">{{ $item['title'] }}</h3>
-              @if ($item['content'])
-                <div data-service-body>
-                  {!! wp_kses_post($item['content']) !!}
-                </div>
-              @endif
-            </article>
-          @endforeach
+          <div data-panel-scroll>
+            <button type="button" data-close aria-label="{{ __('Close', 'sage') }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 6l12 12M18 6L6 18"/>
+              </svg>
+            </button>
+            @foreach ($services as $item)
+              <article data-service-panel="{{ $item['slug'] }}" hidden>
+                <p>{{ str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) }}</p>
+                <h3 id="service-{{ $item['slug'] }}">{{ $item['title'] }}</h3>
+                @if ($item['content'])
+                  <div data-service-body>
+                    {!! wp_kses_post($item['content']) !!}
+                  </div>
+                @endif
+              </article>
+            @endforeach
+          </div>
         </div>
       </div>
     </section>
